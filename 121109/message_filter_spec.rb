@@ -8,11 +8,13 @@ describe MessageFilter, 'with argument "foo"' do
     @filter = MessageFilter.new('foo')
   end
 
+  subject { @filter }
+
   it {
-    @filter.should be_detected('Hello from foo')
+    should be_detected('Hello from foo')
   }
 
   it {
-    @filter.should_not be_detected('Hello World!')
+    should_not be_detected('Hello World!')
   }
 end
