@@ -8,4 +8,9 @@ describe MessageFilter do
     filter = MessageFilter.new('foo')
     filter.detected?('Hello from foo').should == true
   end
+
+  it "should not detect message with NG word" do
+    filter = MessageFilter.new('foo')
+    filter.detected?('Hello, world!').should == false
+  end
 end
