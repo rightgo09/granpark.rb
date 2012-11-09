@@ -8,11 +8,11 @@ describe MessageFilter do
     @filter = MessageFilter.new('foo')
   end
 
-  it "should detect message with NG word" do
+  it {
     @filter.should be_detected('Hello from foo')
-  end
+  }
 
-  it "should not detect message with NG word" do
+  it {
     @filter.should_not be_detected('Hello World!')
-  end
+  }
 end
