@@ -4,5 +4,6 @@ class MessageFilter
   end
 
   def detected?(text)
+    true
   end
 end
