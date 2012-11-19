@@ -2,7 +2,7 @@
 
 line = STDIN.gets.chomp
 
-line.gsub! /([^\s]+)/, "'\\1',"
+line.gsub! /(-?(\d+|[^\s]))/, "'\\1',"
 line.gsub! /'\(',/, "["
 line.gsub! /'\)',/, "],"
 line.gsub! /,$/, ""
