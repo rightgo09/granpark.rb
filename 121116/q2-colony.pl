@@ -17,9 +17,8 @@ for (1..$Y) {
 sub search {
   my ($y, $x, $colony_id) = @_;
   my $cell = $space[$y][$x];
-  return if (not $cell->{lived}) || $cell->{scaned};
-  $cell->{scaned} = 1; # true
-  $colony_id ||= ($cell->{colony_id} = ++$now_colony_id);
+  return if (not $cell->{lived}) || $cell->{colony_id};
+  $cell->{colony_id} = ($colony_id ||= ++$now_colony_id);
 
   # right
   if ($x+1 < $X && $space[$y][$x+1]->{lived}) {
@@ -33,7 +32,7 @@ sub search {
   if ($x > 0 && $space[$y][$x-1]->{lived}) {
     search($y, $x-1, $colony_id);
   }
-  # below
+  # above
   if ($y > 0 && $space[$y-1][$x]->{lived}) {
     search($y-1, $x, $colony_id)
   }
